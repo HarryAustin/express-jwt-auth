@@ -47,4 +47,16 @@ The user logins using the passport local, but session is deactivated coz we dont
 
 Using the passport local strategy, the user logins and a token is created for the user, using the json web token library which we will return to the client in a response, with the client deciding what to do with the token(that is, where to store the token).
 
-Then we will use the passport jwt strategy
+Then we will use the passport jwt strategy which will extract the jwt from the Authorization header from Bearer ey........token.
+
+Then some keys are created with pem format, using the crypto, fs and path module, which creates a unique private key for a respective publick key or conversely...
+
+To sign the token, we will use the private key while to extract the token we will use the public key, as we are only identifying information and not passing data across some some machines or between some machines, if that was the case, then we will sign the data with a public key and decode with a private (imagine writing a secret message to your crush in class, with some key which you've made public, but only she/he can decrypt the key coz she has a key private which no one has)..
+
+But for our case, we are only identifying identity, so we use a private key to sign that, a key which no one can guess and the identity is unique to the server alone, then anyone with a public key can access the identity and grant permission, which makes sense, coz in real world, the identity from our server wont be sent to one client only but to a ton of them, so these clientS need to have each public key.
+
+Tho, in this case, the server is both handling the private key and public key, probably in future, will build a project that communicates with 2 servers to fully understand..
+
+## CREDITS
+
+Credits to ZACH from freecodecamp on youtube on his complete beginners course on user authentication in web apps.

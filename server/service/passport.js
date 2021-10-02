@@ -29,11 +29,13 @@ passport.use(new Local(authHandler));
 const pathToPubKey = path.join(mainPath, "server", "keys", "rsa_pub_key.pem");
 const PUB_KEY = fs.readFileSync(pathToPubKey, "utf8");
 console.log(PUB_KEY);
+
 const options = {
   jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
   secretOrKey: PUB_KEY,
   algorithms: ["RS256"],
 };
+
 const jwtHandler = async (payload, cb) => {
   try {
     const { id } = payload;
